@@ -1,0 +1,40 @@
+# === Python ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
+*.sqlite3
+
+# === Jupyter ===
+.ipynb_checkpoints/
+.notebooks_cache/
+.notebook_profile/
+
+# === Data ===
+data/*
+!data/processed/
+!data/processed/test.csv
+
+# === Model ===
+models/
+*.pkl
+
+
+# === Logs ===
+*.log
+pipeline.log
+pytest.ini
+
+# === OS & IDE ===
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+
+

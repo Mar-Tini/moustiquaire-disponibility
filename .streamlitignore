@@ -1,0 +1,9 @@
+
+notebooks/*
+
+streamlit_app/config/*.json
+
+
+*.log
+*.tmp
+__pycache__/

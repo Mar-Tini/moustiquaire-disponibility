@@ -1,0 +1,117 @@
+data: 
+  raw: "../data/raw/MENAGE.dta"
+  processed_train: "../data/processed/train.csv"
+  processed_test: "../data/processed/test.csv"
+  model_dir: "models/"
+
+features: 
+  target: 'TN3'
+  drop_columns: 
+    # Individu
+    - HL1
+    - HL3
+    - HL4
+    - HL5M
+    - HL5Y
+    - HL6
+    - HL7
+    - HL8
+    - HL9
+    - HL10
+    - HL11
+    - HL12
+    - HL13
+    - HL14
+    - HL15
+    - HL16
+    - HL17
+    - HL18
+    - HL19
+    - HL20
+    - HL20A
+    - HL20BA
+    - HL20BB
+    - HL20BC
+    - HL20BD
+    - HL20BE
+    - HL20BX
+    - HL20BNR
+    - HL33
+    - HL39
+
+    # Éducation détaillée
+    - ED1
+    - ED2A
+    - ED3
+    - ED4
+    - ED5A
+    - ED5B
+    - ED6
+    - ED7
+    - ED8
+    - ED9
+    - ED10A
+    - ED10B
+    - ED11
+    - ED12
+    - ED13A
+    - ED13B
+    - ED13C
+    - ED13X
+    - ED13Z
+    - ED13NR
+    - ED14
+    - ED15
+    - ED16A
+    - ED16B
+
+    # Variables moustiquaire → fuite d'info
+    - TNLN
+    - TN4
+    - TN5
+    - TN10
+    - TN12
+    - TN13
+    - TN15_1
+    - TN15_2
+    - TN15_3
+    - TN15_4
+    - TN15_5
+    - TN15_6
+    - TN15_7
+    - TN15_8
+
+    # Ménage inutiles
+    - HH4
+    - HH5D
+    - HH5M
+    - HH5Y
+
+    # Techniques
+    - MLINE
+    - FLINE
+    - caretakerdis
+
+    # Scores fortement corrélés
+    - windex10
+    - wscoreu
+    - windex5u
+    - windex10u
+    - wscorer
+    - windex5r
+    - windex10r
+
+train: 
+  test_size: 0.2 
+  cv: 5
+  scoring: 'accuracy'
+
+model: 
+  random_forest: 
+    n_estimators: [100, 200, 300, 500]
+    max_depth: [None, 5, 10, 20]
+    min_samples_split: [2, 5, 10] 
+    max_features: ['sqrt', 'log2', None]
+  logistic_regression: 
+    solver: 'liblinear'
+    random_state: 42
